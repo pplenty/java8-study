@@ -59,6 +59,29 @@ public class SynchronizedObjectTest {
         System.out.println(test.count1);
         System.out.println(test.count2);
 
+        /**
+         * Contructor line 451
+         */
+/*
+        if (candidateList.size() == 1 && explicitArgs == null && !mbd.hasConstructorArgumentValues()) {
+            Method uniqueCandidate = candidateList.get(0);
+            if (uniqueCandidate.getParameterCount() == 0) {
+                mbd.factoryMethodToIntrospect = uniqueCandidate;
+
+                ////////////////////////////////////////////////////////////////////////////
+                synchronized (mbd.constructorArgumentLock) {
+                    mbd.resolvedConstructorOrFactoryMethod = uniqueCandidate;
+                    mbd.constructorArgumentsResolved = true;
+                    mbd.resolvedConstructorArguments = EMPTY_ARGS;
+                }
+                ////////////////////////////////////////////////////////////////////////////
+
+                bw.setBeanInstance(instantiate(beanName, mbd, factoryBean, uniqueCandidate, EMPTY_ARGS));
+                return bw;
+            }
+        }
+*/
+
     }
 
     public void addCount1() {
@@ -73,7 +96,7 @@ public class SynchronizedObjectTest {
         }
     }
 
-    public synchronized void addCount2() {
+    public void addCount2() {
         synchronized (sync3) {
             count2++;
         }
