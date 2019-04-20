@@ -15,6 +15,8 @@ public class SynchronizedObjectTest {
     Object sync1 = new Object();
     Object sync2 = new Object();
     Map<String, Integer> sync3 = new HashMap<>();
+    SyncObject sync4 = new SyncObject(1010L, "100");
+    SyncObject sync5 = new SyncObject(1010L, "100");
 
     public static void main(String... args) throws InterruptedException {
 
@@ -84,27 +86,50 @@ public class SynchronizedObjectTest {
 
     }
 
-    public void addCount1() {
-        synchronized (sync1) {
-            count1++;
-        }
+    /**
+     * object & block synchronized 키워드
+     */
+//    public void addCount1() {
+//        synchronized (sync1) {
+//            count1++;
+//        }
+//    }
+//
+//    public void subCount1() {
+//        synchronized (sync1) {
+//            count1--;
+//        }
+//    }
+//
+//    public void addCount2() {
+//        synchronized (sync4) {
+//            count2++;
+//        }
+//    }
+//
+//    public void subCount2() {
+//        synchronized (sync4) {
+//            count2--;
+//        }
+//    }
+
+
+    /**
+     * method 에 붙은 synchronized 키워드
+     */
+    public synchronized void addCount1() {
+        count1++;
     }
 
-    public void subCount1() {
-        synchronized (sync1) {
-            count1--;
-        }
+    public synchronized void subCount1() {
+        count1--;
     }
 
-    public void addCount2() {
-        synchronized (sync3) {
-            count2++;
-        }
+    public synchronized void addCount2() {
+        count2++;
     }
 
-    public void subCount2() {
-        synchronized (sync3) {
-            count2--;
-        }
+    public synchronized void subCount2() {
+        count2--;
     }
 }
