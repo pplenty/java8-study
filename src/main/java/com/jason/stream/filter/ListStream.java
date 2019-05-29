@@ -73,7 +73,11 @@ public class ListStream {
 
         @Override
         public String toString() {
-            return "priority=" + priority;
+            return "{\n" +
+                    "\tpayload='" + payload + '\'' + "\n" +
+                    "\t, available=" + available + "\n" +
+                    "\t, priority=" + priority + "\n" +
+                    '}';
         }
     }
 }
