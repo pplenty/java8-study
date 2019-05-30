@@ -34,12 +34,6 @@ public class DistinctTest {
         long te_1 = System.currentTimeMillis();
         System.out.println("\n속도 : " + (te_1 - ts_1) / 1000.);
         System.out.println(rankList.size());
-
-        final Set<Object> seen = new HashSet<>();
-        System.out.println(seen.add(1));
-        System.out.println(seen.add(1));
-        System.out.println(seen.add(3));
-
     }
 
     private static <T> Predicate<T> distinctByKey(Function<? super T, ?> keyExtractor) {
