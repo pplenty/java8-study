@@ -2,10 +2,8 @@ package com.jason.stream.distinct;
 
 import com.jason.stream.filter.ListStream;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.time.DayOfWeek;
+import java.util.*;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -34,6 +32,16 @@ public class DistinctTest {
         long te_1 = System.currentTimeMillis();
         System.out.println("\n속도 : " + (te_1 - ts_1) / 1000.);
         System.out.println(rankList.size());
+
+        String a = Optional.of("naver")
+//                .filter(StringUtils::isNotBlank)
+                .map(utmSource -> "AP".equals(utmSource) ? "external" : null)
+                .orElse("search");
+        System.out.println(a);
+        System.out.println(isBlank("     "));
+
+
+        System.out.println(DayOfWeek.FRIDAY);
     }
 
     private static <T> Predicate<T> distinctByKey(Function<? super T, ?> keyExtractor) {
@@ -41,5 +49,18 @@ public class DistinctTest {
         final Set<Object> seen = new HashSet<>();
 
         return t -> seen.add(keyExtractor.apply(t));
+    }
+
+    public static boolean isBlank(final CharSequence cs) {
+        int strLen;
+        if (cs == null || (strLen = cs.length()) == 0) {
+            return true;
+        }
+        for (int i = 0; i < strLen; i++) {
+            if (Character.isWhitespace(cs.charAt(i)) == false) {
+                return false;
+            }
+        }
+        return true;
     }
 }
